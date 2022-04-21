@@ -1,2 +1,2 @@
-# pycord-ui-web
+# Pycord UI (Web)
 A mini-design system for building Pycord projects on the web.

@@ -1,0 +1,11 @@
+# Workspaces
+/.idea
+/.vscode
+
+# Dependencies
+/node_modules
+/**/node_modules
+
+# Builds and Dists
+/build
+/dist

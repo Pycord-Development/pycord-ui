@@ -1,0 +1,10 @@
+{
+  "name": "@pycord/pycui-react",
+  "version": "0.1.0-dev",
+  "description": "A mini-design system for building Pycord projects on the web with React.",
+  "main": "index.js",
+  "repository": "https://github.com/Pycord-Development/pycord-ui-web.git",
+  "author": "Matteu",
+  "license": "MIT",
+  "private": false
+}

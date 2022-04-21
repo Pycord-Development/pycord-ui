@@ -1,0 +1,13 @@
+{
+  "name": "@pycord/pycui",
+  "version": "0.1.0-dev",
+  "description": "A mini-design system for building Pycord projects on the web.",
+  "main": "index.js",
+  "repository": "https://github.com/Pycord-Development/pycord-ui-web.git",
+  "author": "Matteu",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "@matteusan/sentro": "0.1.21"
+  }
+}

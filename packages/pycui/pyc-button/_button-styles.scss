@@ -1,0 +1,90 @@
+///
+//  Copyright (c) 2022 Pycord Development
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
+///
+
+@use '../pyc-core';
+@use 'button-mixins' as mixins;
+
+@mixin render() {
+  $color: 'accent';
+  
+  .pyc-button {
+    width: 100%;
+    min-width: 57px;
+    max-width: max-content;
+    display: inline-flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 0.4rem 0.6rem;
+    font-size: pyc-core.token-get('fs-md');
+    font-weight: 700;
+    border-radius: pyc-core.token-get('rounded-sm');
+    cursor: pointer;
+    user-select: none;
+    @include pyc-core.prefix(transition, all 0.1s ease);
+    
+    & > * + * {
+      margin-left: 0.5rem;
+    }
+    
+    @include mixins.text($color);
+    
+    &.is-inverted {
+      @include mixins.text('primary');
+    }
+    
+    &.is-outlined {
+      @include mixins.outlined($color);
+      
+      &.is-inverted {
+        @include mixins.outlined('primary');
+      }
+    }
+    
+    &.is-filled {
+      @include mixins.filled($color);
+      
+      &.is-inverted {
+        @include mixins.filled('primary');
+      }
+    }
+    
+    .pyc-button__icon {
+      display: grid;
+      place-items: center;
+      font-size: pyc-core.to-rem(24px);
+      vertical-align: center;
+      
+      > svg {
+        vertical-align: center;
+        width: pyc-core.to-rem(24px);
+        height: pyc-core.to-rem(24px);
+        size: pyc-core.to-rem(24px);
+      }
+    }
+    
+    .pyc-button__label {
+      font-size: inherit;
+      font-weight: inherit;
+    }
+  }
+}

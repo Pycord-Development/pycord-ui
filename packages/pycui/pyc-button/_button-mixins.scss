@@ -1,0 +1,98 @@
+///
+//  Copyright (c) 2022 Pycord Development
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
+///
+
+@use '../pyc-core';
+
+@mixin text($color: 'accent') {
+  background-color: pyc-core.key-create('button-fill', rgba(0 0 0 / 0));
+  color: pyc-core.key-create('button-ink', pyc-core.token-get('#{$color}-ink'));
+  border: 1px solid pyc-core.key-create('button-border', rgba(0 0 0 / 0));
+  
+  &:hover,
+  &:focus {
+    @include pyc-core.key-bind('button-fill', rgba(pyc-core.token-get-raw('#{$color}'), 15%));
+    @include pyc-core.key-bind('button-border', rgba(pyc-core.token-get-raw('#{$color}'), 1.5%));
+  }
+  
+  &:active {
+    @include pyc-core.key-bind('button-fill', rgba(pyc-core.token-get-raw('#{$color}'), 33%));
+    @include pyc-core.key-bind('button-border', rgba(pyc-core.token-get-raw('#{$color}'), 3.3%));
+  }
+  
+  &:disabled {
+    @include pyc-core.key-bind('button-ink', pyc-core.token-get('#{$color}-dark'));
+    @include pyc-core.key-bind('button-border', pyc-core.token-get('#{$color}-dark'));
+  }
+}
+
+@mixin outlined($color: 'accent') {
+  background-color: pyc-core.key-create('button-fill', rgba(0 0 0 / 0));
+  color: pyc-core.key-create('button-ink', pyc-core.token-get('#{$color}-ink'));
+  border: 1px solid pyc-core.key-create('button-border', pyc-core.token-get('#{$color}'));
+  
+  &:focus {
+    @include pyc-core.key-bind('button-fill', rgba(pyc-core.token-get-raw('#{$color}'), 15%));
+    @include pyc-core.key-bind('button-border', pyc-core.token-get('#{$color}'));
+  }
+  
+  &:hover {
+    @include pyc-core.key-bind('button-fill', pyc-core.token-get('#{$color}'));
+    @include pyc-core.key-bind('button-border', pyc-core.token-get('#{$color}'));
+  }
+  
+  &:active {
+    @include pyc-core.key-bind('button-fill', pyc-core.token-get('#{$color}-light'));
+    @include pyc-core.key-bind('button-border', pyc-core.token-get('#{$color}-light'));
+  }
+  
+  &:disabled {
+    @include pyc-core.key-bind('button-ink', pyc-core.token-get('#{$color}-dark'));
+    @include pyc-core.key-bind('button-border', pyc-core.token-get('#{$color}-dark'));
+  }
+}
+
+@mixin filled($color: 'accent') {
+  background-color: pyc-core.key-create('button-fill', pyc-core.token-get('#{$color}'));
+  color: pyc-core.key-create('button-ink', pyc-core.token-get('#{$color}-ink'));
+  border: 1px solid pyc-core.key-create('button-border', pyc-core.token-get('#{$color}'));
+  
+  &:hover {
+    @include pyc-core.key-bind('button-fill', pyc-core.token-get('#{$color}'));
+    @include pyc-core.key-bind('button-border', pyc-core.token-get('#{$color}'));
+  }
+  
+  &:focus {
+    @include pyc-core.key-bind('button-fill', pyc-core.token-get('#{$color}'));
+    @include pyc-core.key-bind('button-border', pyc-core.token-get('#{$color}'));
+  }
+  
+  &:active {
+    @include pyc-core.key-bind('button-fill', pyc-core.token-get('#{$color}-light'));
+    @include pyc-core.key-bind('button-ink', pyc-core.token-get('#{$color}-ink'));
+    @include pyc-core.key-bind('button-border', pyc-core.token-get('#{$color}-light'));
+  }
+  
+  &:disabled {
+    @include pyc-core.key-bind('button-fill', pyc-core.token-get('#{$color}-dark'));
+    @include pyc-core.key-bind('button-border', pyc-core.token-get('#{$color}-dark'));
+  }
+}

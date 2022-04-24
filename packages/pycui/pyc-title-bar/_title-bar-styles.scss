@@ -23,33 +23,31 @@
 @use '../pyc-core';
 
 @mixin render() {
-  @mixin init() {
-    .pyc-title-bar {
-      display: flex;
-      flex-flow: row nowrap;
-      align-items: center;
+  .pyc-title-bar {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    
+    > * + * {
+      margin-left: 0.5rem;
+    }
+    
+    .pyc-title-bar__icon {
+      display: grid;
+      place-items: center;
+      font-size: pyc-core.to-rem(30px);
+      color: pyc-core.token-get('accent');
+      user-select: none;
       
-      > * + * {
-        margin-left: 0.5rem;
+      > svg {
+        width: pyc-core.to-rem(30px);
+        height: pyc-core.to-rem(30px);
       }
-      
-      .pyc-title-bar__icon {
-        display: grid;
-        place-items: center;
-        font-size: pyc-core.to-rem(30px);
-        color: pyc-core.token-get('accent');
-        user-select: none;
-        
-        > svg {
-          width: pyc-core.to-rem(30px);
-          height: pyc-core.to-rem(30px);
-        }
-      }
-      
-      .pyc-title-bar__title {
-        font-size: pyc-core.to-rem(28px);
-        line-height: pyc-core.to-rem(50px);
-      }
+    }
+    
+    .pyc-title-bar__title {
+      font-size: pyc-core.to-rem(28px);
+      line-height: pyc-core.to-rem(50px);
     }
   }
 }

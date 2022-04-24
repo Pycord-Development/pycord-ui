@@ -29,13 +29,13 @@ function buildMainSass() {
       .pipe(gulp.dest('./dist/css'));
 }
 
-function testSass() {
+function buildTestSassVanilla() {
   return gulp.src(['./tests/vanilla/scss/main.test.scss'], { sourcemaps: true })
       .pipe(sass().on('error', sass.logError))
-      .pipe(gulp.dest('./tests/vanilla/scss/'));
+      .pipe(gulp.dest('./tests/vanilla/css/'));
 }
 
-exports.default = {
+exports.default = gulp.series(
   // buildMainSass,
-  testSass
-};
+  buildTestSassVanilla
+);

@@ -20,3 +20,9 @@
 //  SOFTWARE.
 ///
 
+@use 'node_modules/@pycord/pycui';
+@use 'node_modules/@pycord/pycui/pyc-button';
+
+@include pycui.init {
+  @include pyc-button.render();
+}

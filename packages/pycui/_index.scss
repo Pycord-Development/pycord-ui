@@ -20,8 +20,11 @@
 //  SOFTWARE.
 ///
 
+@use 'init-base' as base;
+
 @forward 'pyc-core';
 
-@mixin init {
-  //
+@mixin init($extend: (), $extended-tokens...) {
+  @include base.init($extend, $extended-tokens...);
+  @content;
 }

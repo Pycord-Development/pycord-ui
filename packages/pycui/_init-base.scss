@@ -1,0 +1,114 @@
+///
+//  Copyright (c) 2022 Pycord Development
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
+///
+
+@use 'pyc-core';
+@use 'sass:map';
+
+@use 'init-font-pack' as font-pack;
+
+@mixin init($extend, $extended-tokens...) {
+  :root {
+    color-scheme: dark;
+    @include pyc-core.token-config(
+      map.deep-merge(pyc-core.$pyc-base-tokens, $extend),
+      $primary: (
+        'light': var(--pyc-theme-pyc-grey-light),
+        'default': var(--pyc-theme-pyc-grey),
+        'dark': var(--pyc-theme-pyc-grey-dark),
+        'ink': var(--pyc-theme-pyc-grey-ink),
+      ),
+      $accent: (
+        'light': var(--pyc-theme-pyc-blurple-light),
+        'default': var(--pyc-theme-pyc-blurple),
+        'dark': var(--pyc-theme-pyc-blurple-dark),
+        'ink': var(--pyc-theme-pyc-blurple-ink),
+      ),
+      $radius: (
+        'small': var(--pyc-theme-rounded-sm),
+        'medium': var(--pyc-theme-rounded-md),
+        'large': var(--pyc-theme-rounded-lg),
+        'pill': var(--pyc-theme-rounded-pill),
+      ),
+      $extended-tokens...
+    );
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    color: inherit;
+    box-sizing: inherit;
+    
+    &::before,
+    &::after {
+      margin: 0;
+      padding: 0;
+      color: inherit;
+      box-sizing: inherit;
+    }
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span,
+  a {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: pyc-core.token-get('fw-normal');
+    line-height: pyc-core.token-get('lh-normal');
+  }
+  
+  li {
+    list-style: none;
+  }
+  
+  @include font-pack.load();
+  
+  a {
+    text-decoration: none;
+    color: pyc-core.token-get('pyc-blurple');
+    
+    &:hover {
+      color: pyc-core.token-get('pyc-blurple-light');
+    }
+  }
+  
+  code {
+    font-family: 'Fira Code', monospace;
+  }
+  
+  html {
+    width: 100%;
+    height: 100%;
+    font-size: 100%;
+    box-sizing: border-box;
+    font-family: pyc-core.token-get('ff-global');
+    font-weight: pyc-core.token-get('fw-normal');
+    background-color: pyc-core.token-get('primary-dark');
+    color: pyc-core.token-get('primary-ink');
+  }
+}

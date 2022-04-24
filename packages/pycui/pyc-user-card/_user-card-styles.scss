@@ -1,0 +1,117 @@
+///
+//  Copyright (c) 2022 Pycord Development
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
+///
+
+@use '../pyc-core';
+
+@mixin render() {
+  $img-size: 100px;
+  
+  .pyc-user-card {
+    width: 100%;
+    padding: 1rem;
+    background: pyc-core.token-get('primary');
+    border-radius: pyc-core.token-get('radius-medium');
+    display: flex;
+    flex-direction: column;
+    @include pyc-core.elevate(3);
+    
+    .pyc-user-card__wrap {
+      display: grid;
+      grid-template-columns: $img-size 1fr;
+      grid-gap: 0.7rem;
+      
+      .pyc-user-card__img {
+        width: $img-size;
+        height: $img-size;
+        position: relative;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        border-radius: 50%;
+        border: 2px solid pyc-core.token-get('accent');
+        background-color: pyc-core.token-get('accent'); // Prevents gap between image and border
+        user-select: none;
+        @include pyc-core.prefix(transition, all 0.1s ease);
+        
+        &:hover {
+          border-color: pyc-core.token-get('accent-light');
+          background-color: pyc-core.token-get('accent-light');
+        }
+        
+        img {
+          z-index: 1;
+        }
+      }
+      
+      .pyc-user-card__info {
+        .pyc-user-card__name {
+          font-size: pyc-core.to-rem(20px);
+        }
+        
+        .pyc-user-card__role {
+          font-size: pyc-core.to-rem(14px);
+        }
+        
+        .pyc-user-card__quote {
+          margin: 0.5rem 0;
+          font-size: pyc-core.to-rem(12px);
+          white-space: pre-line;
+          
+          &::before {
+            content: open-quote;
+          }
+          
+          &::after {
+            content: close-quote;
+          }
+        }
+      }
+    }
+    
+    .pyc-user-card__links {
+      margin-top: auto;
+      
+      .pyc-user-card__links__wrap {
+        width: 100%;
+        display: inline-block;
+        margin-top: 0.7rem;
+        float: bottom;
+        
+        > * + * {
+          margin-left: 0.5rem;
+        }
+        
+        .pyc-button {
+          max-width: calc(calc(100% - 0.5rem) / 2);
+        }
+        
+        .pyc-user-card__link {
+          @include pyc-core.prefix(transition, all 0.1s linear);
+          
+          &:hover {
+            color: pyc-core.token-get('accent-light');
+          }
+        }
+      }
+    }
+  }
+}

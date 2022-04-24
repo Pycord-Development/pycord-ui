@@ -7,6 +7,9 @@
   "author": "Matteu <matteugt@gmail.com>",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "build:sass": "gulp"
+  },
   "devDependencies": {
     "gulp": "4.0.2",
     "gulp-sass": "5.1.0",

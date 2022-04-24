@@ -52,6 +52,12 @@
     );
   }
   
+  @include pyc-core.breakpoint-config((
+    'small': 320px,
+    'medium': 640px,
+    'large': 870px
+  ));
+  
   * {
     margin: 0;
     padding: 0;

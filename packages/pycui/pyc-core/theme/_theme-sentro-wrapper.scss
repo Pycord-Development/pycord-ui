@@ -60,8 +60,14 @@
   @return sentro.key-create($key, $value);
 }
 
+@mixin breakpoint-config($map, $breakpoints...) {
+  @include sentro.breakpoint-config($map, $breakpoints...);
+}
+
 @mixin breakpoint-create($query, $context: 'min') {
-  @include sentro.breakpoint-create($query, $context);
+  @include sentro.breakpoint-create($query, $context) {
+    @content;
+  }
 }
 
 @mixin elevate($level) {

@@ -20,11 +20,4 @@
 //  SOFTWARE.
 ///
 
-@use 'node_modules/@matteusan/sentro' with (
-  $prefix: 'pyc',
-  $context: 'theme'
-);
-
-@forward 'theme';
-@forward 'tokens';
-@forward 'tools';
+@forward 'tools-sentro-wrapper';

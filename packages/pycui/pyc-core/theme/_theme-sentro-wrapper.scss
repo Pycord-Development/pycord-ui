@@ -1,0 +1,69 @@
+///
+//  Copyright (c) 2022 Pycord Development
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
+///
+
+@use 'node_modules/@matteusan/sentro';
+@use 'sass:meta';
+@use 'sass:string';
+
+@function token-check($query) {
+  @return sentro.token-check($query);
+}
+
+@mixin token-config($map, $tokens...) {
+  @include sentro.token-config($map, $tokens...);
+}
+
+@function token-get($query) {
+  @return sentro.token-get($query);
+}
+
+@function token-get-raw($query) {
+  $search-string: 'var(--pyc-theme-';
+  @if token-check($query) and meta.type-of(sentro.token-get-raw($query)) == string {
+    $_token: sentro.token-get-raw($query);
+    @if string.index($_token, $search-string) == 1 {
+      $_extracted: string.slice($_token, (string.length($search-string) + 1), (string.length($_token) - 1));
+      @return sentro.token-get-raw($_extracted);
+    }
+  }
+  @return sentro.token-get-raw($query);
+}
+
+@function key-get($query) {
+  @return sentro.key-get($query);
+}
+
+@mixin key-bind($key, $value) {
+  @include sentro.key-bind($key, $value);
+}
+
+@function key-create($key, $value) {
+  @return sentro.key-create($key, $value);
+}
+
+@mixin breakpoint-create($query, $context: 'min') {
+  @include sentro.breakpoint-create($query, $context);
+}
+
+@mixin elevate($level) {
+  @include sentro.elevation-apply($level);
+}

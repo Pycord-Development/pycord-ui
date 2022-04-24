@@ -20,11 +20,12 @@
 //  SOFTWARE.
 ///
 
-@use 'node_modules/@matteusan/sentro' with (
-  $prefix: 'pyc',
-  $context: 'theme'
-);
+@use 'node_modules/@matteusan/sentro';
 
-@forward 'theme';
-@forward 'tokens';
-@forward 'tools';
+@function to-rem($px) {
+  @return sentro.px-to-rem($px);
+}
+
+@mixin prefix($property, $value, $targets: ()) {
+  @include sentro.prefix($property, $value, $targets);
+}

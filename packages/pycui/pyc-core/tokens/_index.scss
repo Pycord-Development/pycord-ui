@@ -20,6 +20,75 @@
 //  SOFTWARE.
 ///
 
-$base-tokens: (
+@use 'node_modules/@matteusan/sentro';
 
+$pyc-base-tokens: (
+  'pyc-grey': (
+    'light': #33373a,
+    'default': #23272a,
+    'dark': #17181a,
+    'ink': #fff
+  ),
+  'pyc-blurple': (
+    'light': #909aff,
+    'default': #5865f2,
+    'dark': #2f3bbe,
+    'ink': #fff
+  ),
+  'error': (
+    'default': #d93333,
+    'ink': #fff
+  ),
+  'warning': (
+    'default': #ffa012,
+    'ink': #000
+  ),
+  'success': (
+    'default': #1ea33c,
+    'ink': #fff
+  ),
+  'rounded': (
+    'none': 0,
+    'xs': 0.1rem,
+    'sm': 0.3rem,
+    'md': 0.5rem,
+    'lg': 0.7rem,
+    'xl': 1.2rem,
+    'pill': 500px,
+  ),
+  'pd': (
+    'none': 0,
+    'xs': 0.1rem,
+    'sm': 0.3rem,
+    'md': 0.5rem,
+    'lg': 0.7rem,
+    'xl': 1.2rem,
+    'pill': 500px,
+  ),
+  'ff': (
+    'global': ('Outfit', sans-serif),
+    'title': ('Saira', monospace),
+    'subtitle': ('Outfit', sans-serif),
+  ),
+  'fs': (
+    'xs': sentro.px-to-rem(10px),
+    'sm': sentro.px-to-rem(12px),
+    'md': sentro.px-to-rem(14px),
+    'lg': sentro.px-to-rem(20px),
+    'xl': sentro.px-to-rem(26px),
+    '2xl': sentro.px-to-rem(30px),
+    '3xl': sentro.px-to-rem(41px),
+    '4xl': sentro.px-to-rem(52px)
+  ),
+  'fw': (
+    'black': 800,
+    'bold': 700,
+    'normal': 400,
+    'light': 300,
+  ),
+  'lh': (
+    'broad': 1.75,
+    'normal': 1.5,
+    'condensed': 1.25
+  ),
 );

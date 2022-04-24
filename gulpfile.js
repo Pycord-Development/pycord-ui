@@ -36,6 +36,6 @@ function buildTestSassVanilla() {
 }
 
 exports.default = gulp.series(
-  // buildMainSass,
+  buildMainSass,
   buildTestSassVanilla
 );

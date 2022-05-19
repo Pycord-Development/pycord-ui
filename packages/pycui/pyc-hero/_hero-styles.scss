@@ -39,14 +39,14 @@
       max-width: 1077px;
       margin: 0 auto;
       
-      img {
+      .pyc-hero__img {
         width: 100px;
         height: auto;
         margin-bottom: 0.7rem;
         user-select: none;
       }
       
-      h1 {
+      .pyc-hero__title {
         text-align: center;
         font-size: clamp(#{pyc-core.to-rem(28px)}, 10vw, #{pyc-core.to-rem(34px)});
       }

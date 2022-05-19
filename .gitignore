@@ -10,5 +10,10 @@
 /build
 /dist
 
+# Test files
 */**/*.test.css
 */**/*.test.js
+
+# Package builds (CSS)
+/packages/pycui/**/*.css
+/packages/pycui/**/*.js

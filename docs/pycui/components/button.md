@@ -2,7 +2,7 @@
 The button component allows the user to execute meaningful actions, or navigate the site's landscape.
 
 ## Expected Behavior
-Buttons are expected to be clear in intention; they should be easy to understand and use. And are single purpose; they
+Buttons are expected to be clear in intention. They should be easy to understand and use. And are single purpose; they
 should only be used for one action.
 
 ## Usage

@@ -35,7 +35,7 @@
     cursor: pointer;
     z-index: 101;
     
-    &.visible {
+    &.is-visible {
       display: block;
     }
     
@@ -47,7 +47,7 @@
       background-color: rgba(0 0 0 / 0);
     }
     
-    .pyc-navbar__wrapper {
+    .pyc-navbar__wrap {
       flex-flow: column nowrap;
       gap: 0.7rem;
       

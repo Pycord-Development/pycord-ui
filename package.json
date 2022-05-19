@@ -8,7 +8,8 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "build:sass": "gulp"
+    "build:sass": "gulp --gulpfile=\"gulpfile-build.js\"",
+    "test:sass": "gulp --gulpfile=\"gulpfile-tests.js\""
   },
   "devDependencies": {
     "gulp": "4.0.2",
@@ -16,6 +17,6 @@
     "sass": "1.50.1"
   },
   "dependencies": {
-    "@matteusan/sentro": "0.1.21"
+    "@matteusan/sentro": "0.1.22"
   }
 }

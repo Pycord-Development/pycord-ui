@@ -23,19 +23,12 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
 
-function buildMainSass() {
-  return gulp.src('./packages/pycui/main.scss')
-      .pipe(sass().on('error', sass.logError))
-      .pipe(gulp.dest('./dist/css'));
-}
-
 function buildTestSassVanilla() {
   return gulp.src(['./tests/vanilla/scss/main.test.scss'], { sourcemaps: true })
-      .pipe(sass().on('error', sass.logError))
-      .pipe(gulp.dest('./tests/vanilla/css/'));
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('./tests/vanilla/css/'));
 }
 
 exports.default = gulp.series(
-  buildMainSass,
-  buildTestSassVanilla
+  buildTestSassVanilla,
 );
